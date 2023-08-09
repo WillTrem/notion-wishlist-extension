@@ -1,8 +1,15 @@
-import { Client } from "@notionhq/client";
+/*global browser*/
 import axios from "axios";
-
+import { useState, useEffect } from "react";
 function App() {
-  // const notion = new Client({ auth: process.env.NOTION_KEY });
+  const [product, setProduct] = useState();
+
+  browser.runtime.onMessage.addListener((newProduct) => {
+    console.log("PRODUCT RECEIVED: ");
+    console.log(newProduct);
+    setProduct(newProduct);
+  });
+
   const addWishlistItem = async () => {
     const newItem = {
       parent: {
@@ -100,20 +107,15 @@ function App() {
       .catch(function (error) {
         console.error(error);
       });
-
-    // let response;
-    // try {
-    //   response = await notion.pages.create();
-    // } catch (error) {
-    //   console.error(error.body);
-    // }
-    // console.log(response);
   };
   return (
-    <div className="flex flex-col w-20 h-20 bg-black ">
-      <span>Hello There</span>
-      <button className="bg-white" onClick={addWishlistItem}>
-        Test
+    <div className="flex flex-col w-20 h-20 border-black border-2 ">
+      <span>{product?.name || "No product found"}</span>
+      <p>{product?.brand || ""}</p>
+      <p>{product?.price || ""}</p>
+      <p>{product?.url || ""}</p>
+      <button className="bg-green-600" onClick={addWishlistItem}>
+        Add Item
       </button>
     </div>
   );

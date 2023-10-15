@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <title>Notion Wishlist Extension</title>
+    <script defer src="../src/popup.js" type="module"></script>
+    <script src="../src/notionHelper.js" type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/26d1b7915e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-main font-semibold text-main-text text-base text-center">
+    <div
+      id="main"
+      class="flex flex-col justify-center items-center gap-4 p-6 rounded-md max-w-sm"
+    >
+      <span id="title" class="text-white text-2xl font-bold"
+        >Notion Wish List Saver</span
+      >
+      <div
+        id="productFound"
+        class="hidden flex-col justify-center items-center gap-4"
+      >
+        <div
+          id="productInfo"
+          class="flex flex-col justify-center items-center gap-4"
+        ></div>
+        <button
+          id="addItemBtn"
+          class="bg-main-light hover:bg-white rounded-md text-white hover:text-main-light px-3 py-1 text-base justify-center border border-white border-solid"
+          onClick=""
+        >
+          Add to list
+        </button>
+        <span class="text-xs opacity-50"
+          >If the product described is not exactly matching the one on your
+          webpage, simply refresh the page.</span
+        >
+      </div>
+
+      <span id="noProduct" class="text-main-text text-base opacity-50"
+        >No product was found</span
+      >
+    </div>
+  </body>
+</html>

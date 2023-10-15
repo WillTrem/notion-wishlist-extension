@@ -4,23 +4,37 @@
   "version": "1.0.0",
   "manifest_version": 2,
   "homepage_url": "https://github.com/WillTrem/notion-wishlist-extension",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{c4d5d35c-875a-403d-a526-b4dcb79e60a7}",
+      "strict_min_version": "112.0"
+    },
+    "gecko_android": {
+      "strict_min_version": "113.0"
+    }
+  },
   "browser_action": {
-    "default_popup": "index.html",
+    "default_popup": "dist/index.html",
     "default_title": "Notion Wishlist Extension",
     "default_icon": {
-      "512": "logo512.png"
+      "512": "dist/notion.512x512.png"
     }
   },
   "icons": {
-    "512": "logo512.png"
+    "512": "dist/notion.512x512.png"
   },
   "permissions": ["tabs", "storage"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["contentScript.js"],
+      "js": ["src/contentScript.js"],
       "run_at": "document_start"
     }
   ],
+  "background": {
+    "scripts": ["src/backgroundScript.js"],
+    "persistent": false,
+    "type": "module"
+  },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

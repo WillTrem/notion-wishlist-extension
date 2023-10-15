@@ -1,4 +1,4 @@
-// import axios from "axios";
+import { showConfirmationMenu } from "./popup.js";
 let env = undefined;
 browser.storage.local.onChanged.addListener((changes, areaName) => {
   console.log(changes);
@@ -109,9 +109,8 @@ const addWishlistItem = async (product) => {
   };
   browser;
   fetch(url, options)
-    //   axios
-    //     .request(options)
     .then(function (response) {
+      showConfirmationMenu();
       console.log(response.data);
     })
     .catch(function (error) {

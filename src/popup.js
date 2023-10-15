@@ -5,6 +5,7 @@ const addItemButton = document.getElementById("addItemBtn");
 const productInfoDiv = document.getElementById("productInfo");
 const productFoundDiv = document.getElementById("productFound");
 const noProductDiv = document.getElementById("noProduct");
+const productAddedDiv = document.getElementById("productAdded");
 
 addItemButton.addEventListener("click", () => {
   if (product) {
@@ -35,3 +36,9 @@ const formatProductToHTML = (product) => {
 
   return html;
 };
+
+const showConfirmationMenu = () => {
+  productAddedDiv.style.display = "inline-block";
+};
+
+export { showConfirmationMenu };

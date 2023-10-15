@@ -1,4 +1,4 @@
-import { showConfirmationMenu } from "./popup.js";
+import { showConfirmationMenu, displayErrorMessage } from "./popup.js";
 let env = undefined;
 browser.storage.local.onChanged.addListener((changes, areaName) => {
   console.log(changes);
@@ -114,6 +114,7 @@ const addWishlistItem = async (product) => {
       console.log(response.data);
     })
     .catch(function (error) {
+      displayErrorMessage("An error occurred when trying to add the product.");
       console.error(error);
     });
 };

@@ -5,12 +5,14 @@ const addItemButton = document.getElementById("addItemBtn");
 const productInfoDiv = document.getElementById("productInfo");
 const productFoundDiv = document.getElementById("productFound");
 const noProductDiv = document.getElementById("noProduct");
-const productAddedDiv = document.getElementById("productAdded");
+const productAddedSpan = document.getElementById("productAdded");
+const errorMessageSpan = document.getElementById("errorMessage");
 
 addItemButton.addEventListener("click", () => {
   if (product) {
+    errorMessageSpan.style.display = "none";
     addWishlistItem(product);
-    product = undefined;
+    // product = undefined;
   }
 });
 
@@ -38,7 +40,12 @@ const formatProductToHTML = (product) => {
 };
 
 const showConfirmationMenu = () => {
-  productAddedDiv.style.display = "inline-block";
+  productAddedSpan.style.display = "inline-block";
 };
 
-export { showConfirmationMenu };
+const displayErrorMessage = (message) => {
+  errorMessageSpan.innerText = message;
+  errorMessageSpan.style.display = "inline-block";
+};
+
+export { showConfirmationMenu, displayErrorMessage };

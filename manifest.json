@@ -1,7 +1,7 @@
 {
   "name": "Notion Wishlist Extension",
-  "description": "Generate universally unique identifiers fast.",
-  "version": "1.0.1",
+  "description": "This is a firefox extension to allow saving items easily to a notion wishlist.",
+  "version": "1.0.2",
   "manifest_version": 2,
   "homepage_url": "https://github.com/WillTrem/notion-wishlist-extension",
   "browser_specific_settings": {
